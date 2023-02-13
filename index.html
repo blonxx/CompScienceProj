@@ -17,7 +17,7 @@
             <ul class="navlinks">
                 <li><a href="#investigation">Investigation + Plan</a></li>
                 <li><a href="#design">Design</a></li>
-                <li><a href="#">Implementation</a></li>
+                <li><a href="#implement">Implementation</a></li>
             </ul>
         </header>
         <div id="investigation">
@@ -57,8 +57,26 @@
                     Below is the flowchart I created to help me visualise everything that needs to be accounted for :
                     <br><br>
                 </p1>
-                <img scr="/images/Blank diagram.svg">
+                
+                <img src="/images/diagram.png" alt="flowchart" height="100%" width="100%">
 
+            </section>
+        </div>
+        <div id="implement">
+            <section class="s2">
+                <h1>
+                    Implementation
+                    <br><br>
+                </h1>
+                <p1>
+                    My project has been designed around the pygame library as it is a powerful and offers several useful tools. I decided to place various parts of the game into separate definitions in order to make it easier to call them at a later point. This opens the option of having multiple game modes for example multiplayer and single player as each segments are stored in separate definitions and loops, meaning they won’t interrupt each other.
+                    <br><br>
+                    I have used Firebase Realtime Database in my project, it allows me to send data like high scores and player names into a database. These entries are later called on and used to be displayed on scoreboards and calculate useful insights like mean median etc. 
+                    <br><br>
+                    Using Realtime Database also enables me to feature a scoreboard on the website as all the results are updated in realtime ensuring everything is perfectly in sync.
+                    <br><br>
+                    
+                </p1>
             </section>
         </div>
     </body>
