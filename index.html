@@ -10,7 +10,7 @@
                 <ul class="navlinks">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">High Scores</a></li>
-                    <li><a href="#">Testing</a></li>
+                    <li><a href="#testing">Testing</a></li>
                 </ul>
             </nav>
             <img class="logo" src="/images/pong.png" alt="logo" width="200">
@@ -75,7 +75,37 @@
                     <br><br>
                     Using Realtime Database also enables me to feature a scoreboard on the website as all the results are updated in realtime ensuring everything is perfectly in sync.
                     <br><br>
-                    
+                    Bellow I have provided an algorithm from my game that was crutial to its function : 
+                    <br><br>
+                    scorelist = []
+                    <br><br>
+                    ref2 = db.reference('test')<br>
+                    snapshot = ref2.order_by_value().limit_to_last(5).get()<br>
+                    for key, val in snapshot.items():<br>
+                    scorelist.append("{0}".format(key))<br>
+                    scorelist.append("{0}".format(val))<br><br>
+                    This snippet of code is crucial for the functionality of the database, as the values returned directly from firebase weren’t in a conventional python list meaning specific values can’t be extracted individually using an index.
+                    <br><br>
+                    The code starts off with the creation of a standard python list.<br>
+                    Next we define the location of our firebase database.<br>
+                    The next definition uses the location of the database and passes through some more information specifying what we want exactly, in this case we are ordering all the items by value and telling it to get the top 5 results.<br>
+                    After that we add a player name (key) and the score (val) to the python list for every key and val in our firebase database.<br>
+                    Using this code it is now possible to call a specific index and retrieve specific data from the list.<br><br>
+                    The most major issue I’ve faced during this project was implementing the firebase realtime database. The resources online where scarce for implementing it into python. After a lot of research and trail and error I managed to find libraries that offer more or less what I need, after installing them I was faced with the challenge of navigating and setting up the google cloud IAM & admin. Another issue occurred when I was convinced I had to create a new principal in the permission group and grant access manually, as it turned out later a principal was created by firebase and was ready to go.<br>
+                </p1>
+            </section>
+        </div>
+        <div id="testing">
+            <section class="s2">
+                <h1>
+                    Testing
+                    <br><br>
+                </h1>
+                <p1>
+                    I tested my game every time I added a new feature or line of code to make sure everything is still in order. This also made it easier to troubleshoot it in the future as if the game refused to run or if some sort of issue occurred it’d be easier for me to narrow because I was already working on that section of code.<br><br>
+                    The main portion of my code was tested by removing the lines of code that caused the game to end, therefore I was able to run the game continuously and could monitor the results that where being sent to the database.<br><br>
+
+Another method I used consisted of adding print lines in sections that where causing problems so I could narrow down what exactly is causing the issue depending on if the message prints or not <br><br>
                 </p1>
             </section>
         </div>
