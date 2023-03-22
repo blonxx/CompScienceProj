@@ -67,3 +67,15 @@ header{
     color: #edf0f1;
     padding-top: 150px;
 }
+
+td, th {
+    border: 1px ;
+    text-align: left;
+    padding: 8px;
+}
+
+table {
+    font-family: "Montserrat", sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }

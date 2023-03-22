@@ -9,15 +9,15 @@
             <nav>
                 <ul class="navlinks">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">High Scores</a></li>
-                    <li><a href="#testing">Testing</a></li>
+                    <li><a href="#investigation">Investigation + Plan</a></li>
+                    <li><a href="#design">Design</a></li>
                 </ul>
             </nav>
             <img class="logo" src="/images/pong.png" alt="logo" width="200">
             <ul class="navlinks">
-                <li><a href="#investigation">Investigation + Plan</a></li>
-                <li><a href="#design">Design</a></li>
                 <li><a href="#implement">Implementation</a></li>
+                <li><a href="#testing">Testing</a></li>
+                <li><a href="#eval">Evaluation</a></li>
             </ul>
         </header>
         <div id="investigation">
@@ -36,8 +36,20 @@
                     <br><br>
                     After taking all of those factors into consideration I came to the conclusion that pong would be the best overall game to create, the game is relatively simple, it can be played in both single and multiplayer, it would be possible to introduce random elements to the physics of the ball. The game also features a point system and the game ends when the player fails to block the ball.
                     <br><br>
-                    After choosing the game, I decided to create a hypothesis putting a twist on the game to make it more interesting for the player. The change I made is the paddle decreasing in size the higher the players score is. This would make the game more difficult for players and the game would become more competitive and tense in multiplayer.
+                    After choosing the game, I decided to putt a twist on the game to make it more interesting for the player. The change I made is the paddle decreasing in size the higher the players score is. This would make the game more difficult for players and the game would become more competitive and tense in multiplayer.
                     <br><br>
+                    In conclusion I will recreate pong, the game will feature both multiplayer and single player modes, there will be a point system where the socore is logged to a database at the end of the game. The game will end if the ball hits one of the walls behind the paddles, and the game will get progressively harder as the player progresses. With all of these point outlined I proceeded to design the game.
+                    <br><br>
+                    I used the following resources to aid me with the completion of this assignment:
+                    <br><br>
+                    https://docs.python.org/3/
+                    <br><br>
+                    https://firebase.google.com/docs/reference/admin/python
+                    <br><br>
+                    https://matplotlib.org/stable/api/index.html
+                    <br><br>
+                    https://www.python-graph-gallery.com/barplot/
+
                 </p1>
     
             </section>
@@ -59,6 +71,13 @@
                 </p1>
                 
                 <img src="/images/diagram.png" alt="flowchart" height="100%" width="100%">
+
+                <p1>
+                    <br><br>
+                    I incorporated abstraction into my project by using various libraries like numpy, matplotlib.pyplot and firebase. By using numpy and Matplotlib.pyplot creating graphs and calculating mode median mean and frequency easier for me.
+                    <br><br>
+                    The model of my game relied on the speed of the game increasing as the player score is divisible by 5. This means the game will get progressively harder as the player progresses. This feature was presented in a pong commercial in 1976, the original game speed was changed with an analog dial, my game alters the speed automatically depending on the player score.
+                </p1>
 
             </section>
         </div>
@@ -102,10 +121,65 @@
                     <br><br>
                 </h1>
                 <p1>
-                    I tested my game every time I added a new feature or line of code to make sure everything is still in order. This also made it easier to troubleshoot it in the future as if the game refused to run or if some sort of issue occurred it’d be easier for me to narrow because I was already working on that section of code.<br><br>
-                    The main portion of my code was tested by removing the lines of code that caused the game to end, therefore I was able to run the game continuously and could monitor the results that where being sent to the database.<br><br>
-
-Another method I used consisted of adding print lines in sections that where causing problems so I could narrow down what exactly is causing the issue depending on if the message prints or not <br><br>
+                    I tested my game every time I added a new feature or line of code to make sure everything is still in order. This also made it easier to troubleshoot it in the future as if the game refused to run or if some sort of issue occurred it’d be easier for me to narrow because I was already working on that section of code.
+                    <br><br>
+                    The main portion of my code was tested by removing the lines of code that caused the game to end, therefore I was able to run the game continuously and could monitor the results that where being sent to the database.
+                    <br><br>
+                    Another method I used consisted of adding print lines in sections that where causing problems so I could narrow down what exactly is causing the issue depending on if the message prints or not 
+                    <br><br>
+                    <br><br>
+                </p1>
+                <table>
+                    <tr>
+                        <th>Test Case</th>
+                        <th>Input</th>
+                        <th>Expected Result</th>
+                        <th>Actual Result</th>
+                    </tr>
+                    <tr>
+                        <td>Player Name Input Only <br> Accept Letters</td>
+                        <td>Test123</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Game Will End After Ball <br>Hits Walls Behind Paddles</td>
+                        <td>Ball Hits x>=690 or x<=0 <br> Value On Screen</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Game Exits Upon <br> "X" being pressed</td>
+                        <td>Pressing "X" key</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Speed increases if <br> score is divisible by 5</td>
+                        <td>Game Score of 5 10 15 etc</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                </table>
+                <p1>
+                    <br><br>
+                    Some of the issues I discovered while testing where; The game ending as soon as it was started for the seccond time, this issue was caused by pygame.init() because the pygame was initilised only once at the start of the code the game was still in theory running after it ended. This issue was solved by initilising pygame at the start of every definition meaning a new game would start everytime the definiton is called.
+                </p1>
+            </section>
+        </div>
+        <div id="eval">
+            <section class="s2">
+                <h1>
+                    Evaluation
+                    <br><br>
+                </h1>
+                <p1>
+                    In conclusion, I have achieved all of the goals I have set out in the investigation and design of this project. Upon starting the game the user is greeted with an interactive main menu, there is multiplayer and single player game modes, I also added a scoreboard that displays both player name and score of the top 5 players. This data is fetched from the firebase realtime database, There is also a statistics python script that I wrote. The script takes all the scores from the database and generates a graph displaying the mean median mode and frequency. 
+                    <br><br>
+                    If I was to do this project again I would choose javascript over python as javascript offers a similar library as pygame called kaboom. Using javascript would offer me more flexibility and an opportunity to incorporate my game into the html website. Another thing Id like to improve is the optimisation of my game, making it more efficient and overall work better.
+                    <br><br>
+                    One issue I faced while coding the game was that I wasn't able to alter the length of the paddles upon a score change. Therfore I decided to settle on changing the time variable increasing the speed of the game. Another issue was implementing a scoreboard into the website, the firebase documentation for javascript was fairly limited and didnt explain much, this caused many issues when I attempted to retrieve any value or key from the database. When unable to get any reasonable data from the database I decided to abandon the whole idea and remove it, I wish I would have been able to make it work.
+                    <br><br><br><br>
                 </p1>
             </section>
         </div>
